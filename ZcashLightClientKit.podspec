@@ -17,11 +17,11 @@ Pod::Spec.new do |s|
 
     s.source_files = 'ZcashLightClientKit/**/*.{swift,h,a}'
     s.swift_version = '5.1'
-    s.ios.deployment_target = '12.0'
+    s.ios.deployment_target = '14.4'
     s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
     s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
     s.dependency 'gRPC-Swift', '= 1.7.2'
-    s.dependency 'SQLite.swift', '~> 0.12.2' 
+    s.dependency 'SQLite.swift', '~> 0.13.3' 
     s.ios.vendored_libraries = 'lib/libzcashlc.a'
     s.preserve_paths = ['Scripts', 'rust','docs','Cargo.*','ZcashLightClientKit/Stencil']
     s.prepare_command = <<-CMD
@@ -42,6 +42,6 @@ Pod::Spec.new do |s|
          :execution_position => :before_compile
       }
       test_spec.dependency 'gRPC-Swift', '= 1.7.2'
-      test_spec.dependency 'SQLite.swift', '~> 0.12.2'
+      test_spec.dependency 'SQLite.swift', '~> 0.13.3'
   end
 end
