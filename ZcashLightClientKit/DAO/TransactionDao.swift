@@ -60,13 +60,13 @@ class TransactionSQLDAO: TransactionRepository {
     }
     
     struct TableStructure {
-        static var id = Expression<Int>(Transaction.CodingKeys.id.rawValue)
-        static var transactionId = Expression<Blob>(Transaction.CodingKeys.transactionId.rawValue)
-        static var created = Expression<String?>(Transaction.CodingKeys.created.rawValue)
-        static var txIndex = Expression<Int?>(Transaction.CodingKeys.transactionIndex.rawValue)
-        static var expiryHeight = Expression<Int?>(Transaction.CodingKeys.expiryHeight.rawValue)
-        static var minedHeight = Expression<Int?>(Transaction.CodingKeys.minedHeight.rawValue)
-        static var raw = Expression<Blob?>(Transaction.CodingKeys.raw.rawValue)
+        static var id = SQLite.Expression<Int>(Transaction.CodingKeys.id.rawValue)
+        static var transactionId = SQLite.Expression<Blob>(Transaction.CodingKeys.transactionId.rawValue)
+        static var created = SQLite.Expression<String?>(Transaction.CodingKeys.created.rawValue)
+        static var txIndex = SQLite.Expression<Int?>(Transaction.CodingKeys.transactionIndex.rawValue)
+        static var expiryHeight = SQLite.Expression<Int?>(Transaction.CodingKeys.expiryHeight.rawValue)
+        static var minedHeight = SQLite.Expression<Int?>(Transaction.CodingKeys.minedHeight.rawValue)
+        static var raw = SQLite.Expression<Blob?>(Transaction.CodingKeys.raw.rawValue)
     }
     
     var dbProvider: ConnectionProvider

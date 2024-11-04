@@ -52,9 +52,9 @@ class ReceivedNotesSQLDAO: ReceivedNoteRepository {
     
     func receivedNote(byRawTransactionId: Data) throws -> ReceivedNoteEntity? {
         let transactions = Table("transactions")
-        let idTx = Expression<Int>("id_tx")
-        let tx = Expression<Int>("tx")
-        let txid = Expression<Blob>("txid")
+        let idTx = SQLite.Expression<Int>("id_tx")
+        let tx = SQLite.Expression<Int>("tx")
+        let txid = SQLite.Expression<Blob>("txid")
         let joinStatement = table.join(.inner,
                                        transactions,
                                        on: transactions[idTx] == table[tx])
@@ -102,9 +102,9 @@ class SentNotesSQLDAO: SentNotesRepository {
     
     func sentNote(byRawTransactionId: Data) throws -> SentNoteEntity? {
         let transactions = Table("transactions")
-        let idTx = Expression<Int>("id_tx")
-        let tx = Expression<Int>("tx")
-        let txid = Expression<Blob>("txid")
+        let idTx = SQLite.Expression<Int>("id_tx")
+        let tx = SQLite.Expression<Int>("tx")
+        let txid = SQLite.Expression<Blob>("txid")
         let joinStatement = table.join(.inner,
                                        transactions,
                                        on: transactions[idTx] == table[tx])

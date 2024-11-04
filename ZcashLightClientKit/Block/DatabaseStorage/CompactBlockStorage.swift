@@ -23,11 +23,11 @@ struct CompactBlockStorage: CompactBlockDAO {
     private func compactBlocksTable() -> Table {
         Table("compactblocks")
     }
-    private func heightColumn() -> Expression<Int64> {
-        Expression<Int64>("height")
+    private func heightColumn() -> SQLite.Expression<Int64> {
+        SQLite.Expression<Int64>("height")
     }
-    private func dataColumn() -> Expression<Blob> {
-        Expression<Blob>("data")
+    private func dataColumn() -> SQLite.Expression<Blob> {
+        SQLite.Expression<Blob>("data")
     }
     func createTable() throws {
         do {

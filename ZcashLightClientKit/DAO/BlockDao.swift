@@ -29,10 +29,10 @@ struct Block: Codable {
     
     static var table = Table("blocks")
     struct TableStructure {
-        static var height = Expression<Int>(Block.CodingKeys.height.rawValue)
-        static var hash = Expression<Blob>(Block.CodingKeys.hash.rawValue)
-        static var time = Expression<Int>(Block.CodingKeys.time.rawValue)
-        static var saplingTree = Expression<Blob>(Block.CodingKeys.saplingTree.rawValue)
+        static var height = SQLite.Expression<Int>(Block.CodingKeys.height.rawValue)
+        static var hash = SQLite.Expression<Blob>(Block.CodingKeys.hash.rawValue)
+        static var time = SQLite.Expression<Int>(Block.CodingKeys.time.rawValue)
+        static var saplingTree = SQLite.Expression<Blob>(Block.CodingKeys.saplingTree.rawValue)
     }
 }
 
@@ -46,7 +46,7 @@ class BlockSQLDAO: BlockDao {
     
     var dbProvider: ConnectionProvider
     var table: Table
-    var height = Expression<Int>("height")
+    var height = SQLite.Expression<Int>("height")
     
     init(dbProvider: ConnectionProvider) {
         self.dbProvider = dbProvider
